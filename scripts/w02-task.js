@@ -12,6 +12,7 @@ const currentYear = currentDate.getFullYear();
 
 // Print the current year to the console
 console.log("Current Year:", currentYear);
+// Get the profile picture
 const profilePicture = "images/Nevado.jpg";
 
 

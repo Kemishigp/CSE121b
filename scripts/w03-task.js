@@ -63,7 +63,7 @@ document.querySelector('#quotient').value = divide(divideNumber1, divideNumber2)
 
 document.querySelector('#divideNumbers').addEventListener('click', divideNumbers);
 
-
+/* STEP 6 */
 /* Decision Structure */
 const currentDate = new Date();
 const currentYear = new Date().getFullYear();
@@ -71,8 +71,34 @@ const currentYear = new Date().getFullYear();
 document.getElementById("year").value = currentYear;
 
 
+/* FUNCTIONS */
+// Your existing functions
 
-// STEP 7
+/* Selection Structures */
+// Add an event listener for the "Get Total Due" button
+document.querySelector('#getTotal').addEventListener('click', getTotalDue);
+
+// Function to calculate total due
+function getTotalDue() {
+    let subtotal = Number(document.querySelector('#subtotal').value); // Get the numeric value entered by the user in the subtotal field
+    let membershipCheckbox = document.querySelector('#member').checked; // Check if the membership checkbox has been checked
+
+    // Check if the membership checkbox is checked and apply a 20% discount to the subtotal amount
+    if (membershipCheckbox) {
+        subtotal *= 0.8; // Apply a 20% discount
+    }
+
+    // Output the total to the total span in the format shown with two decimals using a template string
+    document.querySelector('#total').innerHTML = `Total Due: $${subtotal.toFixed(2)}`;
+}
+
+// Your existing array methods and other code
+
+
+
+
+
+/* STEP 7 */
 /* ARRAY METHODS - Functional Programming */
 /* Output Source Array */
 let numbersArray = [1,2,3,4,5,6,7,8,9,10,11,12,13];

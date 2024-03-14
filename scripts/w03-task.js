@@ -89,10 +89,11 @@ function getTotalDue() {
     }
 
     // Output the total to the total span in the format shown with two decimals using a template string
-    document.querySelector('#total').innerHTML = ` $${subtotal.toFixed(2)}`;
+    document.querySelector('#total').innerHTML = `$${subtotal.toFixed(2)}`; // Display only the dollar sign followed by the amount
 }
 
 // Your existing array methods and other code
+
 
 
 

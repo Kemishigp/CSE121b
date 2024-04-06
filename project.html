@@ -27,9 +27,14 @@
     <main>
         <h1>Weather Forecast</h1>
         <input type="text" id="locationInput" placeholder="Enter city or zip code">
-        <input type="radio" id="current" name="forecastFilter" checked> Current<br>
-        <input type="radio" id="oneDay" name="forecastFilter"> 1-Day Forecast<br>
-        <input type="radio" id="both" name="forecastFilter"> Both
+        <br>
+        
+    <fieldset>
+      <legend>Filter Display:</legend>
+      <input type="radio" id="current" name="forecastFilter" checked> Current<br>
+      <input type="radio" id="oneDay" name="forecastFilter"> 1-Day Forecast<br>
+      <input type="radio" id="both" name="forecastFilter"> Both
+    </fieldset>
 
         <button id="fetchWeather">Get Weather</button>
         <div id="weatherInfo">

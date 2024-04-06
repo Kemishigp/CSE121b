@@ -102,3 +102,14 @@ main {
      margin-top: 60px;
     padding-top: 60px; /* Adjust the value as needed */
 }
+
+/* ... rest of your existing CSS ... */
+
+fieldset {
+  margin-bottom: 10px; /* Add some margin below the fieldset */
+}
+
+input[type="radio"] {
+  margin-right: 10px; /* Add margin between radio buttons */
+}
+

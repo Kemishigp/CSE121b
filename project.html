@@ -27,12 +27,9 @@
     <main>
         <h1>Weather Forecast</h1>
         <input type="text" id="locationInput" placeholder="Enter city or zip code">
-        <label for="forecastType">Select Forecast Type:</label>
-<select id="forecastType">
-  <option value="current">Current Forecast</option>
-  <option value="1-day">1-Day Forecast</option>
-  <option value="both">Both</option>
-</select>
+        <input type="radio" id="current" name="forecastFilter" checked> Current<br>
+        <input type="radio" id="oneDay" name="forecastFilter"> 1-Day Forecast<br>
+        <input type="radio" id="both" name="forecastFilter"> Both
 
         <button id="fetchWeather">Get Weather</button>
         <div id="weatherInfo">

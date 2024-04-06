@@ -1,50 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Forecast</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
-</head>
+// API KEY
+const apiKey = 'b972ab33e7e440efa30215736232210';
 
-<body>
-    <nav>
-        <ul id="menu">
-<!--             <li><a id="toggleMenu">&equiv;</a></li> -->
-            <li><a href="index.html">Home</a></li>
-            <li><a href="w01-task.html">W1 Task</a></li>
-            <li><a href="w03-task.html" class="active">W3 Task</a></li>
-            <li><a href="w04-task.html">W4 Task</a></li>
-            <li><a href="w05-task.html">W5 Task</a></li>
-            <li><a href="project.html">Project</a></li>
-        </ul>
-    </nav>
+document.querySelector('#fetchWeather').addEventListener('click', () => {
+    const location = document.querySelector('#locationInput').value;
+    getWeatherData(location);
+});
 
-    <main>
-        <h1>Weather Forecast</h1>
-        <input type="text" id="locationInput" placeholder="Enter city or zip code">
-        <button id="fetchWeather">Get Weather</button>
-        <div id="weatherInfo">
-            <h2>Weather Information</h2>
-            <p id="location"></p>
-            <h3>Current Data</h3>
-            <p id="temperature"></p>
-            <p id="description"></p>
-            <img id="weatherIcon" src="" alt="Weather Icon">
-<!--     FORECAST -->
-            <h3>1 Day Forecast</h3>
-            <p id="temperatureMax"></p>
-            <p id="temperatureMin"></p>
-            <p id="descriptionF"></p>
-            <img id="weatherIconF" src="" alt="Weather Icon">
-        </div>
-        <p id="error"></p>
-    </main>
+function getWeatherData(location) {
+    // Construct the WeatherAPI API URL
+                    // http://api.weatherapi.com/v1/forecast.json?key=%20b972ab33e7e440efa30215736232210&q=83440      &days=1&aqi=no&alerts=no
+    const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=1&aqi=no&alerts=no`;
 
-    <script type="module" src="scripts/project.js"></script>
-</body>
-</html>
+    fetch(apiUrl)
+        .then(response => {
+            if (response.status === 200) {
+                return response.json();
+            } else {
+                throw new Error(`Failed to fetch data. Response status: ${response.status}`);
+            }
+        })
+        .then(data => {
+            displayWeatherData(data);
+        })
+        .catch(error => {
+            showError(error.message);
+        });
+}
+
+function displayWeatherData(data) {
+    document.querySelector('#location').textContent = `Location: ${data.location.name}, ${data.location.country}`;
+    document.querySelector('#error').textContent = '';
+    // CURRENT DATA
+    document.querySelector('#temperature').textContent = `Temperature: ${data.current.temp_c}°C/${data.current.temp_f}°FF`;
+    document.querySelector('#description').textContent = `Conditions: ${data.current.condition.text}`;
+    document.querySelector('#weatherIcon').src = data.current.condition.icon;
+    // FORECAST DATA
+    document.querySelector('#temperatureMax').textContent = `Max Temperature: ${data.forecast.forecastday[0].day.maxtemp_c}°C/${data.forecast.forecastday[0].day.maxtemp_f}°F`;
+    document.querySelector('#temperatureMin').textContent = `Min Temperature: ${data.forecast.forecastday[0].day.mintemp_c}°C/${data.forecast.forecastday[0].day.mintemp_f}°F`;
+    document.querySelector('#descriptionF').textContent = `Conditions: ${data.forecast.forecastday[0].day.condition.text}`;
+    document.querySelector('#weatherIconF').src = data.forecast.forecastday[0].day.condition.icon;
+}
+
+function showError(message) {
+    document.querySelector('#error').textContent = message;
+    document.querySelector('#temperature').textContent = '';
+    document.querySelector('#description').textContent = '';
+    document.querySelector('#weatherIcon').src = '';
+}

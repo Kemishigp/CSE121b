@@ -1,5 +1,3 @@
-/* W05: Programming Tasks */
-
 /* Declare and initialize global variables */
 const apiKey = 'b972ab33e7e440efa30215736232210';
 const forecastElement = document.querySelector('#weatherInfo'); // Assuming you have a div element with the id "WeatherInfo"

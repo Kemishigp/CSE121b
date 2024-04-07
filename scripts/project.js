@@ -1,4 +1,8 @@
 /* Error handling function */
+const apiKey = 'b972ab33e7e440efa30215736232210';
+let weatherList = [];
+const forecastElement = document.querySelector('#weatherInfo'); // Assuming you have a div element with the id "WeatherInfo"
+
 function showError(message) {
   const errorElement = document.querySelector("#error");
   errorElement.textContent = message;
@@ -70,7 +74,7 @@ function filterForecasts(forecasts) {
       case "1 Day Forecast":
           displayForecast(forecasts.filter((forecast) => forecast.ForecastTime.includes("Day")));
           break;
-      case "all":
+      case "Both":
           displayForecast(forecasts);
           break;
       default:

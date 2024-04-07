@@ -27,7 +27,7 @@ const displayForecast = (weatherList) => {
     const p1Element = document.createElement('p');
     p1Element.textContent = forecast.ForecastTemperature;
     const p2Element = document.createElement('p');
-    p2Element.textContent = ConditionText;
+    p2Element.textContent = forecast.ConditionText;
     // Create an img element and add the icon and text
     const imgElement = document.createElement('img');
     imgElement.src = forecast.ConditionImage;

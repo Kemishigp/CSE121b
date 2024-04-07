@@ -29,6 +29,7 @@ const displayTemples = (temples) => {
     });
   };
 
+
 /* async getTemples Function using fetch()*/
 const getTemples = async () => {
     try {

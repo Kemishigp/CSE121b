@@ -1,7 +1,8 @@
 /* W05: Programming Tasks */
 
 /* Declare and initialize global variables */
-const forecastElement = document.querySelector('#weatherInfo'); // Assuming you have a div element with the id "temples"
+const apiKey = 'b972ab33e7e440efa30215736232210';
+const forecastElement = document.querySelector('#weatherInfo'); // Assuming you have a div element with the id "WeatherInfo"
 let weatherList = [];
 
 
@@ -38,30 +39,30 @@ const displayForecast = (weatherList) => {
   });
 };
 
-/* async getTemples Function using fetch()*/
-const getTemples = async () => {
-    try {
-      // Use the fetch method to retrieve temple data from the specified URL
-      const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
+// /* async getTemples Function using fetch()*/
+// const getTemples = async () => {
+//     try {
+//       // Use the fetch method to retrieve temple data from the specified URL
+//       const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
   
-      // Check if the response is OK (status code 200)
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+//       // Check if the response is OK (status code 200)
+//       if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
   
-      // Convert the fetch response to a JavaScript object
-    //   const templeData = await response.json();
-      templeList = await response.json();
+//       // Convert the fetch response to a JavaScript object
+//     //   const templeData = await response.json();
+//       templeList = await response.json();
   
-      // Assign the temple data to the global templeList array
-    //   templeList = templeData;
+//       // Assign the temple data to the global templeList array
+//     //   templeList = templeData;
 
-      // Call the displayTemples function and pass the templeList
-      displayTemples(templeList);
-    } catch (error) {
-      console.error('Error fetching temple data:', error);
-    }
-  };
+//       // Call the displayTemples function and pass the templeList
+//       displayTemples(templeList);
+//     } catch (error) {
+//       console.error('Error fetching temple data:', error);
+//     }
+//   };
 
 const getForecasts = async (location) => {
     // Construct the WeatherAPI API URL

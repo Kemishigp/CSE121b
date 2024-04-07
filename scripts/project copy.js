@@ -4,7 +4,7 @@ let weatherList = []
 const forecastElements = document.querySelector('#weatherInfo'); // Assuming you have a div element with the id "temples"
 
 
-// Button to get weather
+// Button to get weather location
 document.querySelector('#fetchWeather').addEventListener('click', () => {
     const location = document.querySelector('#locationInput').value;
     getWeatherData(location);

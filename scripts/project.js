@@ -37,8 +37,8 @@ const displayForecast = (weatherList) => {
   articleElement.appendChild(h2Element);  
   articleElement.appendChild(h3Element);
   articleElement.appendChild(p1Element);  
-  articleElement.appendChild(p2Element);  
   articleElement.appendChild(imgElement);
+  articleElement.appendChild(p2Element);  
   // Append the <article> element to the global forecastElement variable declared.
   forecastElement.appendChild(articleElement);
   });

@@ -44,30 +44,6 @@ const displayForecast = (weatherList) => {
   });
 };
 
-// /* async getTemples Function using fetch()*/
-// const getTemples = async () => {
-//     try {
-//       // Use the fetch method to retrieve temple data from the specified URL
-//       const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
-  
-//       // Check if the response is OK (status code 200)
-//       if (!response.ok) {
-//         throw new Error('Network response was not ok');
-//       }
-  
-//       // Convert the fetch response to a JavaScript object
-//     //   const templeData = await response.json();
-//       templeList = await response.json();
-  
-//       // Assign the temple data to the global templeList array
-//     //   templeList = templeData;
-
-//       // Call the displayTemples function and pass the templeList
-//       displayTemples(templeList);
-//     } catch (error) {
-//       console.error('Error fetching temple data:', error);
-//     }
-//   };
 
 const getForecasts = async (location) => {
     // Construct the WeatherAPI API URL
@@ -94,7 +70,7 @@ function createWeatherArray(data){
   let currentForecast = {
     "Location": `Location: ${data.location.name}, ${data.location.country}`,
     "ForecastTime": "Current Data",
-    "ForecastTemperature": `Temperature: ${data.current.temp_c}`,
+    "ForecastTemperature": `Temperature: ${data.current.temp_c}°F`,
     "ConditionText": data.current.condition.text,
     "ConditionImage": data.current.condition.icon
   };
@@ -143,8 +119,6 @@ const filterForecasts = (forecasts) => {
         displayForecast(forecasts);
         break;
       default:
-        // Handle an unexpected filter value (optional)
-        break;
     }
   };
 

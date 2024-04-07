@@ -34,10 +34,10 @@ const displayForecast = (weatherList) => {
     imgElement.alt = forecast.ConditionText;
 
   // Append the elements to the <article> element as children. (appendChild)
-  articleElement.appendChild(p1Element);  
-  articleElement.appendChild(p2Element);  
   articleElement.appendChild(h2Element);  
   articleElement.appendChild(h3Element);
+  articleElement.appendChild(p1Element);  
+  articleElement.appendChild(p2Element);  
   articleElement.appendChild(imgElement);
   // Append the <article> element to the global forecastElement variable declared.
   forecastElement.appendChild(articleElement);
@@ -94,7 +94,7 @@ function createWeatherArray(data){
   let currentForecast = {
     "Location": `Location: ${data.location.name}, ${data.location.country}`,
     "ForecastTime": "Current Data",
-    "ForecastTemperature": data.current.temp_c,
+    "ForecastTemperature": `Temperature: ${data.current.temp_c}`,
     "ConditionText": data.current.condition.text,
     "ConditionImage": data.current.condition.icon
   };

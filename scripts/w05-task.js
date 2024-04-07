@@ -28,11 +28,6 @@ const displayTemples = (temples) => {
       templesElement.appendChild(articleElement);
     });
   };
-//   DIFF S
-  // Call the function with the array of temples
-//   displayTemples(temples);
-//   DIFF E
-
 
 /* async getTemples Function using fetch()*/
 const getTemples = async () => {

@@ -6,6 +6,13 @@ const forecastElement = document.querySelector('#weatherInfo'); // Assuming you 
 let weatherList = [];
 
 
+// Button to get weather location
+document.querySelector('#fetchWeather').addEventListener('click', () => {
+  const location = document.querySelector('#locationInput').value;
+  getForecasts(location);
+});
+
+
 /* async displayTemples Function */
 const displayForecast = (weatherList) => {
     

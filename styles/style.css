@@ -144,7 +144,7 @@ main {
 
 /* ... rest of your existing CSS ... */
 
-fieldset {
+select {
   margin-bottom: 10px; /* Add some margin below the fieldset */
 }
 

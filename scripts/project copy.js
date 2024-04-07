@@ -37,7 +37,7 @@ function getWeatherData(location) {
 // Create an array with relevant weather data
 function createWeatherArray(data){
 let currentForecast = {
-  "Location": `Location: ${data.location.name}, ${data.location.country}`;
+  "Location": `Location: ${data.location.name}, ${data.location.country}`,
   "ForecastTime": "Current Data",
   "ForecastTemperature": data.current.temp_c,
   "ConditionText": data.current.condition.text,
@@ -45,7 +45,7 @@ let currentForecast = {
 };
 
 let futureForecast = {
-  "Location": `Location: ${data.location.name}, ${data.location.country}`;
+  "Location": `Location: ${data.location.name}, ${data.location.country}`,
   "ForecastTime": "1 Day Forecast",
   "ForecastTemperature": `Max Temp: ${data.forecast.forecastday[0].day.maxtemp_f}°F/ Min Temp: ${data.forecast.forecastday[0].day.mintemp_f}°F`,
   "ConditionText": data.forecast.forecastday[0].day.condition.text,

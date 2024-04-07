@@ -29,15 +29,21 @@
         <input type="text" id="locationInput" placeholder="Enter city or zip code">
         <br>
         
-    <fieldset>
+    <fieldset id = 'filtered'>
       <legend>Filter Display:</legend>
       <input type="radio" id="current" name="forecastFilter" checked> Current<br>
       <input type="radio" id="oneDay" name="forecastFilter"> 1-Day Forecast<br>
       <input type="radio" id="both" name="forecastFilter"> Both
     </fieldset>
 
+    <select id="filtered" title="Choose a data filter.">
+        <option value="" disabled selected>Filter Weather</option>
+        <option value="Current">Current</option>
+        <option value="1 Day Forecast">1 Day Forecast</option>
+        <option value="Both">Both</option>
+      </select>
+
         <button id="fetchWeather">Get Weather</button>
-        <!-- ------------------------------------------------------------- -->
         <div id="weatherInfo">
         </div>
         <p id="error"></p>
